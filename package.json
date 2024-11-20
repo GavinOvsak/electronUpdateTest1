@@ -1,0 +1,36 @@
+{
+  "name": "electron-update-test",
+  "version": "0.1.0",
+  "main": "main.js",
+  "description": "electron-updater example test",
+  "author": "Gavin Ovsak",
+  "scripts": {
+    "release": "electron-builder -p always"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "electron-notarize": "^1.2.2"
+  },
+  "dependencies": {
+    "electron-log": "^5.2.2",
+    "electron-updater": "^6.3.9"
+  },
+  "build": {
+    "appId": "com.github.gavinovsak.electronupdatetest1",
+    "afterSign": "./build/notarize.js",
+    "mac": {
+      "category": "public.app-category.medical"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false
+    },
+    "linux": {
+      "category": "public.app-category.medical",
+      "target": "AppImage"
+    }
+  }
+}
